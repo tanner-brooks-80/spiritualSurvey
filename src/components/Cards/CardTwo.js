@@ -73,29 +73,7 @@ class CardTwo extends React.Component {
     }
   }
 
-
-
-
-
-  handleOptionChange = changeEvent => {
-    // console.log(this.state);
-    this.setState({
-      selectedOption: changeEvent.target.id
-    });
-  };
    
-
-
-
-onClick = () => {
-      this.props.onQuestionSubmit2(this.state.selectedOption);
-      this.props.onRouteChange('Submit');
-      console.log(this.props.state)
-   };
-
-
-
-
    
     render() {
         return(
@@ -104,27 +82,13 @@ onClick = () => {
                 <h3 className='' >Question 2:  Select the statement that you more closely relate to.</h3>
                   <ul>
                   <li>
-                    <input 
-                      type="radio" 
-                      name="radio2" 
-                      id="Apostolic" 
-                      value="1"
-                      checked={ this.state.selectedOption === "Apostolic"}
-                      onChange={ this.handleOptionChange }
-                      />
+                    <input type="radio" name="radio2" id="Apostolic" value="1"/>
                     <label htmlFor="Apostolic">I ask God specific questions to get specific answers.</label>
                     <div className="check"><div className="inside"></div></div>
                   </li>
                   
                   <li>
-                    <input 
-                      type="radio" 
-                      name="radio2" 
-                      id="Pastoral" 
-                      value="1"
-                      checked={ this.state.selectedOption === "Pastoral"}
-                      onChange={ this.handleOptionChange }
-                      />
+                    <input className="" type="radio" name="radio2" id="Pastoral" value="1"/>
                     <label className="" htmlFor="Pastoral">I like to articulate truth and make it practical for people to understand.</label>
                     <div className="check"><div className="inside"></div></div>
                   </li>
@@ -137,7 +101,7 @@ onClick = () => {
                           </svg>
                         <span className="pl1">Back</span>
                       </a>
-                      <a onClick={ this.onClick } href="#0" className="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box">
+                      <a onClick={() => this.props.onRouteChange('Submit') } href="#0" className="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box">
                         <span className="pr1">Submit</span>
                         <svg className="w1" data-icon="chevronRight" viewBox="0 0 32 32" style={{ fill: "currentcolor"}}>
                           <title>chevronRight icon</title>

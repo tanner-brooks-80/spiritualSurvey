@@ -101,14 +101,14 @@ class App extends Component {
   
   onQuestion1 = (question1) => {
     this.setState({question1: question1});
-    this.database.qustion1 = question1;
+    database.question1 = question1;
     console.log(database);
   }  
   
   
   onQuestion2 = (question2) => {
     this.setState({question2: question2});
-    this.database.qustion2 = question2;
+    database.question2 = question2;
   }
   
   
@@ -134,7 +134,7 @@ class App extends Component {
             : (
             this.state.route === 'CardTwo'
             ?  <div>
-                <CardTwo onRouteChange={this.onRouteChange} onQuestion2 = {this.onQuestion2} />
+                <CardTwo onRouteChange={this.onRouteChange} onQuestion2={this.onQuestion2} />
               </div>
             : <div>
                 <Submit onRouteChange={this.onRouteChange} chartData={this.state.chartData}/>
