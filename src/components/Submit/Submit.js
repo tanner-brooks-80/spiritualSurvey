@@ -9,7 +9,8 @@ class Submit extends React.Component {
     this.state = {
       route: '',
       chartData: props.chartData,
-      users: []
+      users: [],
+      data: props.getDataFromDb
     }
   }
   

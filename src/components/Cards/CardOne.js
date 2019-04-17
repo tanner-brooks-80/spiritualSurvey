@@ -31,6 +31,7 @@ class CardOne extends React.Component {
   onClick = () => {
     this.props.onRouteChange('CardTwo');
     this.props.onQuestion1(this.state.selectedOption);
+    this.props.getDataFromDb();
     console.log('You have selected:', this.state.selectedOption);
   }
   

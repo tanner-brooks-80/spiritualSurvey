@@ -25,7 +25,7 @@ const particlesOptions = {
 const initialState = {
       route: 'CardOne',
       chartData: {},
-      users: [],
+      users: {},
       question1: '',
       question2: '',
       data: []
@@ -38,7 +38,18 @@ const database = {
 }
 
 
-const values = Object.values(database);
+// const values = Object.values(database);
+
+
+const countInArray = (array, what) => {
+  var count = 0;
+  for (var i = 0; i < array.length; i++) {
+      if (array[i] === what) {
+          count++;
+      }
+  }
+  return count;
+}
 
 
 class App extends Component {
@@ -66,7 +77,7 @@ class App extends Component {
 
 
   getDataFromDb = () => {
-    fetch("https://backend-tannerbrooks123.c9users.io/database")
+    fetch("https://backend-tannerbrooks123.c9users.io/getData")
       .then(data => data.json())
       .then(res => this.setState({ data: res.data }));
   };
@@ -91,10 +102,25 @@ class App extends Component {
 
 
 
+
+
+  componentWillMount(){
+    // this.getChartData();
+    fetch('https://backend-tannerbrooks123.c9users.io/database')
+      .then(res => res.json())
+      .then(users => this.setState({users}, () => console.log('Customers fetched..', users)));
+      this.getChartData();
+  }
+
+
+
+
   
 
 
   getChartData(){
+    console.log("this is the current state being downloaded", this.state);
+    const values = Object.values(this.state.users);
     this.setState({
       chartData:{
           labels: ['Apostolic', 'Pastoral', 'Evangelic', 'Teacher', 'Prophetic'],
@@ -102,11 +128,11 @@ class App extends Component {
               {
                 label: 'Score',
                 data: [
-                    this.countInArray(values, "Apostolic"),
-                    2,
-                    6,
-                    3,
-                    7
+                    countInArray(values, "Apostolic"),
+                    // 2,
+                    // 6,
+                    // 3,
+                    // 7
                 ],
                 backgroundColor: [
                     'rgba(0, 0, 0, 0.6)',
@@ -142,12 +168,90 @@ class App extends Component {
   }
   
   
-  componentWillMount(){
-    this.getChartData();
-    // fetch('/database')
-    //   .then(res => res.json())
-    //   .then(users => this.setState({users}, () => console.log('Customers fetched..', users)));
+  // componentWillMount(){
+  //   this.getChartData();
+  //   fetch('https://backend-tannerbrooks123.c9users.io/database')
+  //     .then(res => res.json())
+  //     .then(users => this.setState({users}, () => console.log('Customers fetched..', users)));
+  // }
+
+
+  
+  // componentDidMount() {
+  //   this.getDataFromDb();
+  //   if (!this.state.intervalIsSet) {
+  //     let interval = setInterval(this.getDataFromDb, 1000);
+  //     this.setState({ intervalIsSet: interval });
+  //   }
+  // }   
+  
+  
+  
+  
+  componentWillUnmount() {
+    if (this.state.intervalIsSet) {
+      clearInterval(this.state.intervalIsSet);
+      this.setState({ intervalIsSet: null });
+    }
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  putDataToDB = message => {
+    let currentIds = this.state.data.map(data => data.id);
+    let idToBeAdded = 0;
+    while (currentIds.includes(idToBeAdded)) {
+      ++idToBeAdded;
+    }
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/putData", {
+      id: idToBeAdded,
+      message: message
+    });
+  };
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // our first get method that uses our backend api to 
+  // fetch data from our data base
+  getDataFromDb = () => {
+    fetch("https://backend-tannerbrooks123.c9users.io/getData")
+      .then(data => data.json())
+      .then(res => this.setState({ data: res.data }));
+  };
+
+  // our put method that uses our backend api
+  // to create new query into our data base
+  putDataToDB = message => {
+    let currentIds = this.state.data.map(data => data.id);
+    let idToBeAdded = 0;
+    while (currentIds.includes(idToBeAdded)) {
+      ++idToBeAdded;
+    }
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/putData", {
+      id: idToBeAdded,
+      message: message
+    });
+  };
+  
+  
+  
+  
+  
 
 
 
@@ -159,7 +263,7 @@ class App extends Component {
           <Logo />
           { this.state.route === 'CardOne' 
             ? <div>
-              <CardOne onRouteChange={this.onRouteChange} onQuestion1={this.onQuestion1} />
+              <CardOne onRouteChange={this.onRouteChange} onQuestion1={this.onQuestion1} getDataFromDb={this.getDataFromDb} />
             </div>
             : (
             this.state.route === 'CardTwo'
@@ -167,7 +271,7 @@ class App extends Component {
                 <CardTwo onRouteChange={this.onRouteChange} onQuestion2={this.onQuestion2} />
               </div>
             : <div>
-                <Submit onRouteChange={this.onRouteChange} chartData={this.state.chartData}/>
+                <Submit onRouteChange={this.onRouteChange} chartData={this.state.chartData} getDataFromDb={this.getDataFromDb} />
               </div>
               )
           }
