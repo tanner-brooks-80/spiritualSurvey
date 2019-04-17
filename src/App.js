@@ -5,6 +5,7 @@ import Logo from './components/Logo/Logo';
 import CardOne from './components/Cards/CardOne';
 import CardTwo from './components/Cards/CardTwo';
 import Submit from './components/Submit/Submit';
+import axios from "axios";
 
 
 
@@ -26,7 +27,8 @@ const initialState = {
       chartData: {},
       users: [],
       question1: '',
-      question2: ''
+      question2: '',
+      data: []
 }
 
 
@@ -59,6 +61,33 @@ class App extends Component {
     return count;
 }
 
+
+
+
+
+  getDataFromDb = () => {
+    fetch("https://backend-tannerbrooks123.c9users.io/database")
+      .then(data => data.json())
+      .then(res => this.setState({ data: res.data }));
+  };
+  
+  
+  
+  
+  
+  
+  // putDataToDB = message => {
+  //   let currentIds = this.state.data.map(data => data.id);
+  //   let idToBeAdded = 0;
+  //   while (currentIds.includes(idToBeAdded)) {
+  //     ++idToBeAdded;
+  //   }
+
+  //   axios.post("https://backend-tannerbrooks123.c9users.io/database", {
+  //     id: idToBeAdded,
+  //     message: message
+  //   });
+  // };
 
 
 
@@ -103,6 +132,7 @@ class App extends Component {
     this.setState({question1: question1});
     database.question1 = question1;
     console.log(database);
+    console.log(this.state);
   }  
   
   
