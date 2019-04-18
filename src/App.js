@@ -38,7 +38,6 @@ const database1 = {
 }
 
 
-// const values = Object.values(database);
 
 
 const countInArray = (array, what) => {
@@ -62,26 +61,7 @@ class App extends Component {
 
 
 
- countInArray = (array, what) => {
-    var count = 0;
-    for (var i = 0; i < array.length; i++) {
-        if (array[i] === what) {
-            count++;
-        }
-    }
-    return count;
-}
 
-
-
-
-
-  // getDataFromDb = () => {
-  //   fetch("https://backend-tannerbrooks123.c9users.io/getData")
-  //     .then(data => data.json())
-  //     .then(res => this.setState({ data: res.data }));
-  // };
-  
   
   
   
@@ -99,6 +79,32 @@ class App extends Component {
     console.log(error);
   });
 };  
+
+
+
+
+
+
+
+
+
+
+
+  // our update method that uses our backend api
+  // to overwrite existing data base information
+  updateDB = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question1: updateToApply }
+    });
+  };
 
 
 
@@ -279,11 +285,11 @@ class App extends Component {
   
   // our first get method that uses our backend api to 
   // fetch data from our data base
-  getDataFromDb = () => {
-    fetch("https://backend-tannerbrooks123.c9users.io/getData")
-      .then(data => data.json())
-      .then(res => this.setState({ data: res.data }));
-  };
+  // getDataFromDb = () => {
+  //   fetch("https://backend-tannerbrooks123.c9users.io/getData")
+  //     .then(data => data.json())
+  //     .then(res => this.setState({ data: res.data }));
+  // };
 
   
   
@@ -304,7 +310,9 @@ class App extends Component {
               <CardOne onRouteChange={this.onRouteChange} 
                       onQuestion1={this.onQuestion1}
                       getDataFromDb={this.getDataFromDb} 
-                      putDataToDB={this.putDataToDB} />
+                      putDataToDB={this.putDataToDB}
+                      updateDB={this.updateDB}
+                      />
             </div>
             : (
             this.state.route === 'CardTwo'
