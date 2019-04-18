@@ -29,7 +29,7 @@ class CardTwo extends React.Component {
    
    
   onClick = () => {
-    this.props.onRouteChange('Submit');
+    this.props.onRouteChange('ReadyToSubmit');
     this.props.onQuestion2(this.state.selectedOption);
     // this.props.putDataToDB(this.state.selectedOption);
     this.props.updateQuestion2("5cb8d878af09d60d21e68e24", this.state.selectedOption);
@@ -79,7 +79,7 @@ class CardTwo extends React.Component {
                         <span className="pl1">Back</span>
                       </a>
                       <a onClick={ this.onClick } href="#0" className="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box">
-                        <span className="pr1">Submit</span>
+                        <span className="pr1">Next</span>
                         <svg className="w1" data-icon="chevronRight" viewBox="0 0 32 32" style={{ fill: "currentcolor"}}>
                           <title>chevronRight icon</title>
                           <path d="M12 1 L26 16 L12 31 L8 27 L18 16 L8 5 z"></path>

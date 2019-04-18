@@ -4,6 +4,7 @@ import Particles from 'react-particles-js';
 import Logo from './components/Logo/Logo';
 import CardOne from './components/Cards/CardOne';
 import CardTwo from './components/Cards/CardTwo';
+import ReadyToSubmit from './components/Cards/ReadyToSubmit';
 import Submit from './components/Submit/Submit';
 import axios from "axios";
 
@@ -136,82 +137,24 @@ class App extends Component {
   // }
 
 
-  componentDidMount() {
-    //   if (!this.state.intervalIsSet) {
-    //   let interval = setInterval(this.getDataFromDb, 1000);
-    //   this.setState({ intervalIsSet: interval });
-    // }
-        axios('https://backend-tannerbrooks123.c9users.io/getData')
-          .then(res => {
-            const database = res.data
-            console.log(database);
-            const databaseItem1 = database.data[0]
-            // const databaseItem2 = database[0]
-            let values1 = Object.values(databaseItem1)
-            // let values2 = Object.values(databaseItem2)
+ componentDidMount() {
+      if (!this.state.intervalIsSet) {
+      let interval = setInterval(this.getDataFromDb, 1000);
+      this.setState({ intervalIsSet: interval });
+    }
+  } 
 
-          this.setState({
-          chartData:{
-              labels: ['Apostolic', 'Pastoral', 'Evangelic', 'Teacher', 'Prophetic'],
-              datasets: [
-                  {
-                    label: 'Score',
-                    data: [
-                        countInArray(values1, "Apostolic"),
-                        countInArray(values1, "Pastoral"),
-                        countInArray(values1, "Evangelic"),
-                        countInArray(values1, "Teacher"),
-                        countInArray(values1, "Prophetic")
-                    ],
-                    backgroundColor: [
-                        'rgba(0, 0, 0, 0.6)',
-                        'rgba(0, 0, 0, 0.6)',
-                        'rgba(0, 0, 0, 0.6)',
-                        'rgba(0, 0, 0, 0.6)',
-                        'rgba(0, 0, 0, 0.6)',
-                    ]
-                  }
-                ]
-          }
-      })
-    });
+
+
+  componentWillUnmount() {
+    if (this.state.intervalIsSet) {
+      clearInterval(this.state.intervalIsSet);
+      this.setState({ intervalIsSet: null });
+    }
   }
-
-
-
-
   
 
 
-  // getChartData(){
-  //   console.log("this is the current state being downloaded", this.state);
-  //   const values = Object.values(this.state.users);
-  //   console.log(values);
-  //   this.setState({
-  //     chartData:{
-  //         labels: ['Apostolic', 'Pastoral', 'Evangelic', 'Teacher', 'Prophetic'],
-  //         datasets: [
-  //             {
-  //               label: 'Score',
-  //               data: [
-  //                   countInArray(values, "Apostolic"),
-  //                   // 2,
-  //                   // 6,
-  //                   // 3,
-  //                   // 7
-  //               ],
-  //               backgroundColor: [
-  //                   'rgba(0, 0, 0, 0.6)',
-  //                   'rgba(0, 0, 0, 0.6)',
-  //                   'rgba(0, 0, 0, 0.6)',
-  //                   'rgba(0, 0, 0, 0.6)',
-  //                   'rgba(0, 0, 0, 0.6)',
-  //               ]
-  //             }
-  //           ]
-  //     }
-  //   })
-  // }
   
 
   
@@ -242,35 +185,7 @@ class App extends Component {
   //     .then(res => res.json())
   //     .then(users => this.setState({users}, () => console.log('Customers fetched..', users)));
   // }
-
-
   
-  // componentDidMount() {
-  //   this.getDataFromDb();
-  //   if (!this.state.intervalIsSet) {
-  //     let interval = setInterval(this.getDataFromDb, 1000);
-  //     this.setState({ intervalIsSet: interval });
-  //   }
-  // }   
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-  componentWillUnmount() {
-    if (this.state.intervalIsSet) {
-      clearInterval(this.state.intervalIsSet);
-      this.setState({ intervalIsSet: null });
-    }
-  }
   
   
   
@@ -308,7 +223,48 @@ class App extends Component {
   //   fetch("https://backend-tannerbrooks123.c9users.io/getData")
   //     .then(data => data.json())
   //     .then(res => this.setState({ data: res.data }));
-  // };
+  // };  
+  
+  
+  getDataFromDb = () => {
+    axios('https://backend-tannerbrooks123.c9users.io/getData')
+          .then(res => {
+            const database = res.data
+            console.log(database);
+            const databaseItem1 = database.data[0]
+            // const databaseItem2 = database[0]
+            let values1 = Object.values(databaseItem1)
+            // let values2 = Object.values(databaseItem2)
+
+          this.setState({
+          chartData:{
+              labels: ['Apostolic', 'Pastoral', 'Evangelic', 'Teacher', 'Prophetic'],
+              datasets: [
+                  {
+                    label: 'Score',
+                    data: [
+                        countInArray(values1, "Apostolic"),
+                        countInArray(values1, "Pastoral"),
+                        countInArray(values1, "Evangelic"),
+                        countInArray(values1, "Teacher"),
+                        countInArray(values1, "Prophetic")
+                    ],
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0.6)',
+                        'rgba(0, 0, 0, 0.6)',
+                        'rgba(0, 0, 0, 0.6)',
+                        'rgba(0, 0, 0, 0.6)',
+                        'rgba(0, 0, 0, 0.6)',
+                    ]
+                  }
+                ]
+          }
+      })
+    });
+  };
+  
+  
+  
 
   
   
@@ -332,7 +288,7 @@ class App extends Component {
                       updateQuestion1={this.updateQuestion1}
                       />
             </div>
-            : (
+            : 
             this.state.route === 'CardTwo'
             ?  <div>
                 <CardTwo 
@@ -342,10 +298,19 @@ class App extends Component {
                       updateQuestion2={this.updateQuestion2}
                       />
               </div>
-            : <div>
+            
+            : 
+            this.state.route === 'ReadyToSubmit'
+            ? <div>
+                <ReadyToSubmit 
+                      onRouteChange={this.onRouteChange}
+                />
+              </div>
+            : 
+              <div>
                 <Submit onRouteChange={this.onRouteChange} chartData={this.state.chartData} getDataFromDb={this.getDataFromDb} />
               </div>
-              )
+              
           }
       </div>
     );
