@@ -32,7 +32,7 @@ const initialState = {
 }
 
 
-const database = {
+const database1 = {
   question1: '',
   question2: ''
 }
@@ -109,7 +109,44 @@ class App extends Component {
     fetch('https://backend-tannerbrooks123.c9users.io/database')
       .then(res => res.json())
       .then(users => this.setState({users}, () => console.log('Customers fetched..', users)));
-      this.getChartData();
+      // this.getChartData();
+  }
+
+
+  componentDidMount() {
+        axios('https://backend-tannerbrooks123.c9users.io/database')
+          .then(res => {
+            const database = res.data
+            console.log(database);
+            const databaseItem1 = database[0]
+            console.log(databaseItem1)
+            let values = Object.values(databaseItem1)
+
+          this.setState({
+          chartData:{
+              labels: ['Apostolic', 'Pastoral', 'Evangelic', 'Teacher', 'Prophetic'],
+              datasets: [
+                  {
+                    label: 'Score',
+                    data: [
+                        countInArray(values, "Apostolic"),
+                        // 2,
+                        // 6,
+                        // 3,
+                        // 7
+                    ],
+                    backgroundColor: [
+                        'rgba(0, 0, 0, 0.6)',
+                        'rgba(0, 0, 0, 0.6)',
+                        'rgba(0, 0, 0, 0.6)',
+                        'rgba(0, 0, 0, 0.6)',
+                        'rgba(0, 0, 0, 0.6)',
+                    ]
+                  }
+                ]
+          }
+      })
+    });
   }
 
 
@@ -118,34 +155,35 @@ class App extends Component {
   
 
 
-  getChartData(){
-    console.log("this is the current state being downloaded", this.state);
-    const values = Object.values(this.state.users);
-    this.setState({
-      chartData:{
-          labels: ['Apostolic', 'Pastoral', 'Evangelic', 'Teacher', 'Prophetic'],
-          datasets: [
-              {
-                label: 'Score',
-                data: [
-                    countInArray(values, "Apostolic"),
-                    // 2,
-                    // 6,
-                    // 3,
-                    // 7
-                ],
-                backgroundColor: [
-                    'rgba(0, 0, 0, 0.6)',
-                    'rgba(0, 0, 0, 0.6)',
-                    'rgba(0, 0, 0, 0.6)',
-                    'rgba(0, 0, 0, 0.6)',
-                    'rgba(0, 0, 0, 0.6)',
-                ]
-              }
-            ]
-      }
-    })
-  }
+  // getChartData(){
+  //   console.log("this is the current state being downloaded", this.state);
+  //   const values = Object.values(this.state.users);
+  //   console.log(values);
+  //   this.setState({
+  //     chartData:{
+  //         labels: ['Apostolic', 'Pastoral', 'Evangelic', 'Teacher', 'Prophetic'],
+  //         datasets: [
+  //             {
+  //               label: 'Score',
+  //               data: [
+  //                   countInArray(values, "Apostolic"),
+  //                   // 2,
+  //                   // 6,
+  //                   // 3,
+  //                   // 7
+  //               ],
+  //               backgroundColor: [
+  //                   'rgba(0, 0, 0, 0.6)',
+  //                   'rgba(0, 0, 0, 0.6)',
+  //                   'rgba(0, 0, 0, 0.6)',
+  //                   'rgba(0, 0, 0, 0.6)',
+  //                   'rgba(0, 0, 0, 0.6)',
+  //               ]
+  //             }
+  //           ]
+  //     }
+  //   })
+  // }
   
 
   
@@ -156,15 +194,15 @@ class App extends Component {
   
   onQuestion1 = (question1) => {
     this.setState({question1: question1});
-    database.question1 = question1;
-    console.log(database);
+    database1.question1 = question1;
+    console.log(database1);
     console.log(this.state);
   }  
   
   
   onQuestion2 = (question2) => {
     this.setState({question2: question2});
-    database.question2 = question2;
+    database1.question2 = question2;
   }
   
   
@@ -184,6 +222,15 @@ class App extends Component {
   //     this.setState({ intervalIsSet: interval });
   //   }
   // }   
+  
+  
+  
+  
+  
+  
+
+  
+  
   
   
   
