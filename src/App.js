@@ -89,10 +89,18 @@ class App extends Component {
   
   putDataToDB = question1Answer => {
     console.log(question1Answer);
-    axios.post("https://backend-tannerbrooks123.c9users.io/putData", {
+    axios.post('https://backend-tannerbrooks123.c9users.io/putData', {
       question1: question1Answer
-    });
-  };
+    })
+    .then(function (response) {
+    console.log(response);
+  })
+    .catch(function (error) {
+    console.log(error);
+  });
+};  
+
+
 
 
 
@@ -247,18 +255,18 @@ class App extends Component {
   
   
   
-  putDataToDB = message => {
-    let currentIds = this.state.data.map(data => data.id);
-    let idToBeAdded = 0;
-    while (currentIds.includes(idToBeAdded)) {
-      ++idToBeAdded;
-    }
+  // putDataToDB = message => {
+  //   let currentIds = this.state.data.map(data => data.id);
+  //   let idToBeAdded = 0;
+  //   while (currentIds.includes(idToBeAdded)) {
+  //     ++idToBeAdded;
+  //   }
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/database", {
-      id: idToBeAdded,
-      message: message
-    });
-  };
+  //   axios.post("https://backend-tannerbrooks123.c9users.io/database", {
+  //     id: idToBeAdded,
+  //     message: message
+  //   });
+  // };
   
   
   
@@ -277,20 +285,6 @@ class App extends Component {
       .then(res => this.setState({ data: res.data }));
   };
 
-  // our put method that uses our backend api
-  // to create new query into our data base
-  putDataToDB = message => {
-    let currentIds = this.state.data.map(data => data.id);
-    let idToBeAdded = 0;
-    while (currentIds.includes(idToBeAdded)) {
-      ++idToBeAdded;
-    }
-
-    axios.post("https://backend-tannerbrooks123.c9users.io/putData", {
-      id: idToBeAdded,
-      message: message
-    });
-  };
   
   
   
@@ -307,7 +301,10 @@ class App extends Component {
           <Logo />
           { this.state.route === 'CardOne' 
             ? <div>
-              <CardOne onRouteChange={this.onRouteChange} onQuestion1={this.onQuestion1} getDataFromDb={this.getDataFromDb} putDataToDB={this.putDataToDB} />
+              <CardOne onRouteChange={this.onRouteChange} 
+                      onQuestion1={this.onQuestion1}
+                      getDataFromDb={this.getDataFromDb} 
+                      putDataToDB={this.putDataToDB} />
             </div>
             : (
             this.state.route === 'CardTwo'
