@@ -76,51 +76,46 @@ class App extends Component {
 
 
 
-  getDataFromDb = () => {
-    fetch("https://backend-tannerbrooks123.c9users.io/getData")
-      .then(data => data.json())
-      .then(res => this.setState({ data: res.data }));
-  };
-  
-  
-  
-  
-  
-  
-  // putDataToDB = message => {
-  //   let currentIds = this.state.data.map(data => data.id);
-  //   let idToBeAdded = 0;
-  //   while (currentIds.includes(idToBeAdded)) {
-  //     ++idToBeAdded;
-  //   }
-
-  //   axios.post("https://backend-tannerbrooks123.c9users.io/database", {
-  //     id: idToBeAdded,
-  //     message: message
-  //   });
+  // getDataFromDb = () => {
+  //   fetch("https://backend-tannerbrooks123.c9users.io/getData")
+  //     .then(data => data.json())
+  //     .then(res => this.setState({ data: res.data }));
   // };
+  
+  
+  
+  
+  
+  
+  putDataToDB = question1Answer => {
+    console.log(question1Answer);
+    axios.post("https://backend-tannerbrooks123.c9users.io/putData", {
+      question1: question1Answer
+    });
+  };
 
 
 
 
 
-  componentWillMount(){
-    // this.getChartData();
-    fetch('https://backend-tannerbrooks123.c9users.io/database')
-      .then(res => res.json())
-      .then(users => this.setState({users}, () => console.log('Customers fetched..', users)));
-      // this.getChartData();
-  }
+  // componentWillMount(){
+  //   // this.getChartData();
+  //   fetch('https://backend-tannerbrooks123.c9users.io/database')
+  //     .then(res => res.json())
+  //     .then(users => this.setState({users}, () => console.log('Customers fetched..', users)));
+  //     // this.getChartData();
+  // }
 
 
   componentDidMount() {
-        axios('https://backend-tannerbrooks123.c9users.io/database')
+        axios('https://backend-tannerbrooks123.c9users.io/getData')
           .then(res => {
             const database = res.data
             console.log(database);
-            const databaseItem1 = database[0]
-            console.log(databaseItem1)
-            let values = Object.values(databaseItem1)
+            const databaseItem1 = database.data[0]
+            // const databaseItem2 = database[0]
+            let values1 = Object.values(databaseItem1)
+            // let values2 = Object.values(databaseItem2)
 
           this.setState({
           chartData:{
@@ -129,11 +124,11 @@ class App extends Component {
                   {
                     label: 'Score',
                     data: [
-                        countInArray(values, "Apostolic"),
-                        // 2,
-                        // 6,
-                        // 3,
-                        // 7
+                        countInArray(values1, "Apostolic"),
+                        countInArray(values1, "Pastoral"),
+                        countInArray(values1, "Evangelic"),
+                        countInArray(values1, "Teacher"),
+                        countInArray(values1, "Prophetic")
                     ],
                     backgroundColor: [
                         'rgba(0, 0, 0, 0.6)',
@@ -195,8 +190,10 @@ class App extends Component {
   onQuestion1 = (question1) => {
     this.setState({question1: question1});
     database1.question1 = question1;
-    console.log(database1);
+    // console.log(database1);
     console.log(this.state);
+    // fetch("https://backend-tannerbrooks123.c9users.io/database")
+    
   }  
   
   
@@ -257,7 +254,7 @@ class App extends Component {
       ++idToBeAdded;
     }
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/putData", {
+    axios.post("https://backend-tannerbrooks123.c9users.io/database", {
       id: idToBeAdded,
       message: message
     });
@@ -310,7 +307,7 @@ class App extends Component {
           <Logo />
           { this.state.route === 'CardOne' 
             ? <div>
-              <CardOne onRouteChange={this.onRouteChange} onQuestion1={this.onQuestion1} getDataFromDb={this.getDataFromDb} />
+              <CardOne onRouteChange={this.onRouteChange} onQuestion1={this.onQuestion1} getDataFromDb={this.getDataFromDb} putDataToDB={this.putDataToDB} />
             </div>
             : (
             this.state.route === 'CardTwo'
