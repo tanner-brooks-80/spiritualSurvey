@@ -92,7 +92,7 @@ class App extends Component {
 
   // our update method that uses our backend api
   // to overwrite existing data base information
-  updateDB = (idToUpdate, updateToApply) => {
+  updateQuestion1 = (idToUpdate, updateToApply) => {
     let objIdToUpdate = null;
     this.state.data.forEach(dat => {
       if (dat.id === idToUpdate) {
@@ -103,6 +103,21 @@ class App extends Component {
     axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
       id: objIdToUpdate,
       update: { question1: updateToApply }
+    });
+  };
+  
+  
+  updateQuestion2 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question2: updateToApply }
     });
   };
 
@@ -122,6 +137,10 @@ class App extends Component {
 
 
   componentDidMount() {
+    //   if (!this.state.intervalIsSet) {
+    //   let interval = setInterval(this.getDataFromDb, 1000);
+    //   this.setState({ intervalIsSet: interval });
+    // }
         axios('https://backend-tannerbrooks123.c9users.io/getData')
           .then(res => {
             const database = res.data
@@ -308,16 +327,20 @@ class App extends Component {
           { this.state.route === 'CardOne' 
             ? <div>
               <CardOne onRouteChange={this.onRouteChange} 
-                      onQuestion1={this.onQuestion1}
-                      getDataFromDb={this.getDataFromDb} 
+                      onQuestion1={this.onQuestion1} 
                       putDataToDB={this.putDataToDB}
-                      updateDB={this.updateDB}
+                      updateQuestion1={this.updateQuestion1}
                       />
             </div>
             : (
             this.state.route === 'CardTwo'
             ?  <div>
-                <CardTwo onRouteChange={this.onRouteChange} onQuestion2={this.onQuestion2} />
+                <CardTwo 
+                      onRouteChange={this.onRouteChange} 
+                      onQuestion2={this.onQuestion2} 
+                      putDataToDB={this.putDataToDB}
+                      updateQuestion2={this.updateQuestion2}
+                      />
               </div>
             : <div>
                 <Submit onRouteChange={this.onRouteChange} chartData={this.state.chartData} getDataFromDb={this.getDataFromDb} />
