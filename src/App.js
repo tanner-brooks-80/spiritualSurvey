@@ -4,6 +4,8 @@ import Particles from 'react-particles-js';
 import Logo from './components/Logo/Logo';
 import CardOne from './components/Cards/CardOne';
 import CardTwo from './components/Cards/CardTwo';
+import CardThree from './components/Cards/CardThree';
+import CardFour from './components/Cards/CardFour';
 import ReadyToSubmit from './components/Cards/ReadyToSubmit';
 import Submit from './components/Submit/Submit';
 import axios from "axios";
@@ -65,6 +67,8 @@ class App extends Component {
 
   
   
+  // our update method that uses our backend api
+  // to overwrite existing data base information
   // updateDB = (idToUpdate, updateToApply) => {
   //   let objIdToUpdate = null;
   //   this.state.data.forEach(dat => {
@@ -91,8 +95,6 @@ class App extends Component {
 
 
 
-  // our update method that uses our backend api
-  // to overwrite existing data base information
   updateQuestion1 = (idToUpdate, updateToApply) => {
     let objIdToUpdate = null;
     this.state.data.forEach(dat => {
@@ -107,14 +109,6 @@ class App extends Component {
     });
   };  
   
-  
-
-  
-  
-  
-  
-  
-  
   updateQuestion2 = (idToUpdate, updateToApply) => {
     let objIdToUpdate = null;
     this.state.data.forEach(dat => {
@@ -126,6 +120,34 @@ class App extends Component {
     axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
       id: objIdToUpdate,
       update: { question2: updateToApply }
+    });
+  };  
+  
+  updateQuestion3 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question3: updateToApply }
+    });
+  };  
+  
+  updateQuestion4 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question4: updateToApply }
     });
   };
 
@@ -263,7 +285,7 @@ componentDidMount() {
                       onQuestion1={this.onQuestion1} 
                       putDataToDB={this.putDataToDB}
                       updateQuestion1={this.updateQuestion1}
-                      // updateDB={this.updateDB}
+                      updateDB={this.updateDB}
                       />
             </div>
             : 
@@ -278,6 +300,22 @@ componentDidMount() {
               </div>
             
             : 
+            this.state.route === 'CardThree'
+            ?  <div>
+                <CardThree 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion3={this.updateQuestion3}
+                      />
+              </div>
+            :
+            this.state.route === 'CardFour'
+            ?  <div>
+                <CardFour 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion4={this.updateQuestion4}
+                      />
+              </div>
+            :
             this.state.route === 'ReadyToSubmit'
             ? <div>
                 <ReadyToSubmit 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cards.css';
 
-class CardTwo extends React.Component {
+class CardFour extends React.Component {
   
   constructor(props) {
     super(props);
@@ -29,9 +29,8 @@ class CardTwo extends React.Component {
    
    
   onClick = () => {
-    this.props.onRouteChange('CardThree');
-    this.props.onQuestion2(this.state.selectedOption);
-    this.props.updateQuestion2("5cb9e45caebc7408683ed94f", this.state.selectedOption);
+    this.props.onRouteChange('ReadyToSubmit');
+    this.props.updateQuestion4("5cb9e45caebc7408683ed94f", this.state.selectedOption);
     console.log('You have selected:', this.state.selectedOption);
   }
    
@@ -41,18 +40,18 @@ class CardTwo extends React.Component {
         return(
           <div className='br3 mw8 shadow-5 center'>
             <div>
-                <h3 className='' >Question 2:  Select the statement that you more closely relate to.</h3>
+                <h3 className='' >Question 4:  Select the statement that you more closely relate to.</h3>
                   <ul>
                   <li>
                     <input 
                       type="radio" 
                       name="radio2" 
-                      id="Prophetic" 
+                      id="Pastoral" 
                       value="1" 
-                      checked={ this.state.selectedOption === "Prophetic"}
+                      checked={ this.state.selectedOption === "Pastoral"}
                       onChange={ this.handleOptionChange }
                       />
-                    <label htmlFor="Prophetic">I ask God specific questions to get specific answers.</label>
+                    <label htmlFor="Pastoral">People regularly seek me out for counsil and support.</label>
                     <div className="check"><div className="inside"></div></div>
                   </li>
                   
@@ -65,7 +64,7 @@ class CardTwo extends React.Component {
                       checked={ this.state.selectedOption === "Teacher"}
                       onChange= { this.handleOptionChange }
                       />
-                    <label className="" htmlFor="Teacher">I like to articulate truth and make it practical for people to understand.</label>
+                    <label className="" htmlFor="Teacher">I like to be as accurate as possible in all I do.</label>
                     <div className="check"><div className="inside"></div></div>
                   </li>
                 </ul>
@@ -92,4 +91,4 @@ class CardTwo extends React.Component {
     
 }
 
-export default CardTwo;
+export default CardFour;

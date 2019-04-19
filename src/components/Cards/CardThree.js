@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cards.css';
 
-class CardTwo extends React.Component {
+class CardThree extends React.Component {
   
   constructor(props) {
     super(props);
@@ -29,9 +29,8 @@ class CardTwo extends React.Component {
    
    
   onClick = () => {
-    this.props.onRouteChange('CardThree');
-    this.props.onQuestion2(this.state.selectedOption);
-    this.props.updateQuestion2("5cb9e45caebc7408683ed94f", this.state.selectedOption);
+    this.props.onRouteChange('CardFour');
+    this.props.updateQuestion3("5cb9e45caebc7408683ed94f", this.state.selectedOption);
     console.log('You have selected:', this.state.selectedOption);
   }
    
@@ -41,18 +40,18 @@ class CardTwo extends React.Component {
         return(
           <div className='br3 mw8 shadow-5 center'>
             <div>
-                <h3 className='' >Question 2:  Select the statement that you more closely relate to.</h3>
+                <h3 className='' >Question 3:  Select the statement that you more closely relate to.</h3>
                   <ul>
                   <li>
                     <input 
                       type="radio" 
                       name="radio2" 
-                      id="Prophetic" 
+                      id="Evangelic" 
                       value="1" 
-                      checked={ this.state.selectedOption === "Prophetic"}
+                      checked={ this.state.selectedOption === "Evangelic"}
                       onChange={ this.handleOptionChange }
                       />
-                    <label htmlFor="Prophetic">I ask God specific questions to get specific answers.</label>
+                    <label htmlFor="Evangelic">I want to know if someone is saved or not.</label>
                     <div className="check"><div className="inside"></div></div>
                   </li>
                   
@@ -60,12 +59,12 @@ class CardTwo extends React.Component {
                     <input 
                       type="radio" 
                       name="radio2" 
-                      id="Teacher" 
+                      id="Apostolic" 
                       value="1" 
-                      checked={ this.state.selectedOption === "Teacher"}
+                      checked={ this.state.selectedOption === "Apostolic"}
                       onChange= { this.handleOptionChange }
                       />
-                    <label className="" htmlFor="Teacher">I like to articulate truth and make it practical for people to understand.</label>
+                    <label className="" htmlFor="Apostolic">I expect people to mature and grow.</label>
                     <div className="check"><div className="inside"></div></div>
                   </li>
                 </ul>
@@ -92,4 +91,4 @@ class CardTwo extends React.Component {
     
 }
 
-export default CardTwo;
+export default CardThree;
