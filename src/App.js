@@ -6,6 +6,7 @@ import CardOne from './components/Cards/CardOne';
 import CardTwo from './components/Cards/CardTwo';
 import CardThree from './components/Cards/CardThree';
 import CardFour from './components/Cards/CardFour';
+import CardFive from './components/Cards/CardFive';
 import ReadyToSubmit from './components/Cards/ReadyToSubmit';
 import Submit from './components/Submit/Submit';
 import axios from "axios";
@@ -31,7 +32,8 @@ const initialState = {
       users: {},
       question1: '',
       question2: '',
-      data: []
+      data: [],
+      subData: {}
 }
 
 
@@ -149,6 +151,20 @@ class App extends Component {
       id: objIdToUpdate,
       update: { question4: updateToApply }
     });
+  };  
+  
+  updateQuestion5 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question5: updateToApply }
+    });
   };
 
 
@@ -217,6 +233,48 @@ componentDidMount() {
 //     console.log(error);
 //   });
 // };  
+
+// wholesubmition = this.state.data;
+
+putDataToDB = (wholeSubmission) => {
+  console.log("This is the wholeSubmission: ", wholeSubmission);
+    axios.post('https://backend-tannerbrooks123.c9users.io/putData', {
+      question1: wholeSubmission.question1,
+      question2: wholeSubmission.question2,
+      question3: wholeSubmission.question3,
+      question4: wholeSubmission.question4,
+      question5: wholeSubmission.question5
+    })
+    .then(function (response) {
+    console.log(response);
+  })
+    .catch(function (error) {
+    console.log(error);
+  });
+};  
+
+
+// putDataToDB = wholeSubmission => {
+//     console.log(wholeSubmission);
+//     fetch('https://backend-tannerbrooks123.c9users.io/getData')
+//     .then(data => data.json())
+//           .then(res => {
+//             const database2 = res.data
+//             console.log(database2);
+//             const databaseItem2 = database2[0];
+//             console.log(databaseItem2);
+//             let values2 = Object.values(databaseItem2)
+//     axios.post('https://backend-tannerbrooks123.c9users.io/putData', {
+//       wholeSubmission: values2
+//     })
+//     .then(function (response) {
+//     console.log(response);
+//   })
+//     .catch(function (error) {
+//     console.log(error);
+//   });
+// })
+// };  
   
   
   
@@ -226,9 +284,9 @@ componentDidMount() {
           .then(data => data.json())
           .then(res => {
             const database = res.data
-            console.log(database);
+            console.log("this is the database: ", database);
             const databaseItem1 = database[0];
-            console.log(databaseItem1);
+            console.log("This is the first item in the database: ", databaseItem1);
             // const databaseItem1 = database.data[0]
             // console.log(databaseItem1)
             let values1 = Object.values(databaseItem1)
@@ -257,8 +315,7 @@ componentDidMount() {
                   }
                 ]
           }
-      , data: database}) 
-      // console.log(this.state)
+      , data: database, subData: databaseItem1}) 
     });
   };
   
@@ -316,10 +373,20 @@ componentDidMount() {
                       />
               </div>
             :
+            this.state.route === 'CardFive'
+            ?  <div>
+                <CardFive 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion5={this.updateQuestion5}
+                      />
+              </div>
+            :
             this.state.route === 'ReadyToSubmit'
             ? <div>
                 <ReadyToSubmit 
                       onRouteChange={this.onRouteChange}
+                      wholeSubmission={this.putDataToDB}
+                      subData={this.state.subData}
                 />
               </div>
             : 

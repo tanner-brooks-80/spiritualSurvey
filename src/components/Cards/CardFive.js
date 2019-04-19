@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cards.css';
 
-class CardFour extends React.Component {
+class CardFive extends React.Component {
   
   constructor(props) {
     super(props);
@@ -29,8 +29,8 @@ class CardFour extends React.Component {
    
    
   onClick = () => {
-    this.props.onRouteChange('CardFive');
-    this.props.updateQuestion4("5cb9e45caebc7408683ed94f", this.state.selectedOption);
+    this.props.onRouteChange('ReadyToSubmit');
+    this.props.updateQuestion5("5cb9e45caebc7408683ed94f", this.state.selectedOption);
     console.log('You have selected:', this.state.selectedOption);
   }
    
@@ -40,18 +40,18 @@ class CardFour extends React.Component {
         return(
           <div className='br3 mw8 shadow-5 center'>
             <div>
-                <h3 className='' >Question 4:  Select the statement that you more closely relate to.</h3>
+                <h3 className='' >Question 5:  Select the statement that you more closely relate to.</h3>
                   <ul>
                   <li>
                     <input 
                       type="radio" 
                       name="radio2" 
-                      id="Pastoral" 
+                      id="Prophetic" 
                       value="1" 
-                      checked={ this.state.selectedOption === "Pastoral"}
+                      checked={ this.state.selectedOption === "Prophetic"}
                       onChange={ this.handleOptionChange }
                       />
-                    <label htmlFor="Pastoral">People regularly seek me out for counsil and support.</label>
+                    <label htmlFor="Prophetic">I write down visions and dreams on a regular basis.</label>
                     <div className="check"><div className="inside"></div></div>
                   </li>
                   
@@ -59,17 +59,17 @@ class CardFour extends React.Component {
                     <input 
                       type="radio" 
                       name="radio2" 
-                      id="Teacher" 
+                      id="Evangelic" 
                       value="1" 
-                      checked={ this.state.selectedOption === "Teacher"}
+                      checked={ this.state.selectedOption === "Evangelic"}
                       onChange= { this.handleOptionChange }
                       />
-                    <label className="" htmlFor="Teacher">I like to be as accurate as possible in all I do.</label>
+                    <label className="" htmlFor="Evangelic">I think about different approaches to sharing the gospel with others.</label>
                     <div className="check"><div className="inside"></div></div>
                   </li>
                 </ul>
                     <div className="flex items-center justify-center pa5">
-                      <a onClick={() => this.props.onRouteChange('CardThree') } href="#0" className="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box mr4">
+                      <a onClick={() => this.props.onRouteChange('CardFour') } href="#0" className="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box mr4">
                           <svg className="w1" data-icon="chevronLeft" viewBox="0 0 32 32" style={{ fill: "currentcolor"}} >
                             <title>chevronLeft icon</title>
                             <path d="M20 1 L24 5 L14 16 L24 27 L20 31 L6 16 z"></path>
@@ -91,4 +91,4 @@ class CardFour extends React.Component {
     
 }
 
-export default CardFour;
+export default CardFive;

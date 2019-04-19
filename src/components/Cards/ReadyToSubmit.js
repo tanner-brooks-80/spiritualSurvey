@@ -6,16 +6,18 @@ class ReadyToSubmit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      route: ''
+      route: '',
+      subData: props.subData
     }
   }
   
 
   
   
-  
+
   onClick = () => {
     this.props.onRouteChange('Submit');
+    this.props.wholeSubmission(this.state.subData);
   }
   
 
@@ -26,7 +28,7 @@ class ReadyToSubmit extends React.Component {
             <div>
                 <h3 className='' >Ready To Submit Answers???</h3>
                     <div className="flex items-center justify-center pa5">
-                      <a onClick={() => this.props.onRouteChange('CardTwo') } href="#0" className="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box mr4">
+                      <a onClick={() => this.props.onRouteChange('CardFive') } href="#0" className="f5 no-underline black bg-animate hover-bg-black hover-white inline-flex items-center pa3 ba border-box mr4">
                           <svg className="w1" data-icon="chevronLeft" viewBox="0 0 32 32" style={{ fill: "currentcolor"}} >
                             <title>chevronLeft icon</title>
                             <path d="M20 1 L24 5 L14 16 L24 27 L20 31 L6 16 z"></path>
