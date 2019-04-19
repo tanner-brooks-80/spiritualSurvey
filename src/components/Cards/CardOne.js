@@ -32,7 +32,8 @@ class CardOne extends React.Component {
     this.props.onRouteChange('CardTwo');
     this.props.onQuestion1(this.state.selectedOption);
     // this.props.putDataToDB(this.state.selectedOption);
-    this.props.updateQuestion1("5cb8d878af09d60d21e68e24", this.state.selectedOption);
+    this.props.updateQuestion1("5cb9e45caebc7408683ed94f", this.state.selectedOption);
+    // this.props.updateDB("5cb9e45caebc7408683ed94f", this.state.selectedOption);
     console.log('You have selected:', this.state.selectedOption);
   }
   

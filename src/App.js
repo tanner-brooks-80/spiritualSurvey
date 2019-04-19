@@ -65,21 +65,21 @@ class App extends Component {
 
   
   
+  // updateDB = (idToUpdate, updateToApply) => {
+  //   let objIdToUpdate = null;
+  //   this.state.data.forEach(dat => {
+  //     if (dat.id === idToUpdate) {
+  //       objIdToUpdate = dat._id;
+  //     }
+  //   });
+
+  //   axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+  //     id: objIdToUpdate,
+  //     update: { question1: updateToApply }
+  //   });
+  // };
   
   
-  
-  putDataToDB = question1Answer => {
-    console.log(question1Answer);
-    axios.post('https://backend-tannerbrooks123.c9users.io/putData', {
-      question1: question1Answer
-    })
-    .then(function (response) {
-    console.log(response);
-  })
-    .catch(function (error) {
-    console.log(error);
-  });
-};  
 
 
 
@@ -100,12 +100,19 @@ class App extends Component {
         objIdToUpdate = dat._id;
       }
     });
-
+    
     axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
       id: objIdToUpdate,
       update: { question1: updateToApply }
     });
-  };
+  };  
+  
+  
+
+  
+  
+  
+  
   
   
   updateQuestion2 = (idToUpdate, updateToApply) => {
@@ -126,22 +133,12 @@ class App extends Component {
 
 
 
-
-
-  // componentWillMount(){
-  //   // this.getChartData();
-  //   fetch('https://backend-tannerbrooks123.c9users.io/database')
-  //     .then(res => res.json())
-  //     .then(users => this.setState({users}, () => console.log('Customers fetched..', users)));
-  //     // this.getChartData();
-  // }
-
-
- componentDidMount() {
+componentDidMount() {
       if (!this.state.intervalIsSet) {
       let interval = setInterval(this.getDataFromDb, 1000);
       this.setState({ intervalIsSet: interval });
     }
+    // this.getDataFromDb()
   } 
 
 
@@ -166,47 +163,16 @@ class App extends Component {
   onQuestion1 = (question1) => {
     this.setState({question1: question1});
     database1.question1 = question1;
-    // console.log(database1);
     console.log(this.state);
-    // fetch("https://backend-tannerbrooks123.c9users.io/database")
-    
   }  
   
   
   onQuestion2 = (question2) => {
     this.setState({question2: question2});
     database1.question2 = question2;
+    console.log(this.state);
   }
-  
-  
-  // componentWillMount(){
-  //   this.getChartData();
-  //   fetch('https://backend-tannerbrooks123.c9users.io/database')
-  //     .then(res => res.json())
-  //     .then(users => this.setState({users}, () => console.log('Customers fetched..', users)));
-  // }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  // putDataToDB = message => {
-  //   let currentIds = this.state.data.map(data => data.id);
-  //   let idToBeAdded = 0;
-  //   while (currentIds.includes(idToBeAdded)) {
-  //     ++idToBeAdded;
-  //   }
 
-  //   axios.post("https://backend-tannerbrooks123.c9users.io/database", {
-  //     id: idToBeAdded,
-  //     message: message
-  //   });
-  // };
   
   
   
@@ -217,24 +183,34 @@ class App extends Component {
   
   
   
-  // our first get method that uses our backend api to 
-  // fetch data from our data base
-  // getDataFromDb = () => {
-  //   fetch("https://backend-tannerbrooks123.c9users.io/getData")
-  //     .then(data => data.json())
-  //     .then(res => this.setState({ data: res.data }));
-  // };  
+// putDataToDB = question1Answer => {
+//     console.log(question1Answer);
+//     axios.post('https://backend-tannerbrooks123.c9users.io/putData', {
+//       question1: question1Answer
+//     })
+//     .then(function (response) {
+//     console.log(response);
+//   })
+//     .catch(function (error) {
+//     console.log(error);
+//   });
+// };  
+  
+  
   
   
   getDataFromDb = () => {
-    axios('https://backend-tannerbrooks123.c9users.io/getData')
+    fetch('https://backend-tannerbrooks123.c9users.io/getData')
+          .then(data => data.json())
           .then(res => {
             const database = res.data
             console.log(database);
-            const databaseItem1 = database.data[0]
-            // const databaseItem2 = database[0]
+            const databaseItem1 = database[0];
+            console.log(databaseItem1);
+            // const databaseItem1 = database.data[0]
+            // console.log(databaseItem1)
             let values1 = Object.values(databaseItem1)
-            // let values2 = Object.values(databaseItem2)
+            // let values1 = Object.values(database)
 
           this.setState({
           chartData:{
@@ -259,7 +235,8 @@ class App extends Component {
                   }
                 ]
           }
-      })
+      , data: database}) 
+      // console.log(this.state)
     });
   };
   
@@ -286,6 +263,7 @@ class App extends Component {
                       onQuestion1={this.onQuestion1} 
                       putDataToDB={this.putDataToDB}
                       updateQuestion1={this.updateQuestion1}
+                      // updateDB={this.updateDB}
                       />
             </div>
             : 
