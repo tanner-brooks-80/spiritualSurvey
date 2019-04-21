@@ -308,7 +308,7 @@ putDataToDB = (wholeSubmission) => {
               labels: ['Apostolic', 'Pastoral', 'Evangelic', 'Teacher', 'Prophetic'],
               datasets: [
                   {
-                    label: 'Score',
+                    label: 'Your Score',
                     data: [
                         countInArray(values1, "Apostolic"),
                         countInArray(values1, "Pastoral"),
@@ -324,7 +324,7 @@ putDataToDB = (wholeSubmission) => {
                         'rgba(0, 0, 0, 0.6)',
                     ]
                   }, {
-                    label: 'Total Submissions',
+                    label: 'Total Congregation Submissions',
                     data: [
                           countTotalItem(database, "Apostolic"),
                           countTotalItem(database, "Pastoral"),
@@ -332,7 +332,8 @@ putDataToDB = (wholeSubmission) => {
                           countTotalItem(database, "Teacher"),
                           countTotalItem(database, "Prophetic")
                       ],
-                    type: 'line'
+                    type: 'line',
+                    backgroundColor: 'rgba(255, 253, 196, 0.3)'
                   }
                 ]
           }
