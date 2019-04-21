@@ -25,16 +25,35 @@ class CardOne extends React.Component {
   console.log('You have selected:', this.state.selectedOption);
 }
 
+
+
+
+  // isChecked = () => {
+  //   var radios = document.getElementsByTagName('input');
+  //     for (let i = 0; i < radios.length; i++) {
+  //       if (radios.type === 'radio' && radios.checked) {
+  //         this.props.onRouteChange('CardTwo');
+  //         this.props.onQuestion1(this.state.selectedOption);
+  //         this.props.updateQuestion1("5cb9e45caebc7408683ed94f", this.state.selectedOption);
+  //     } 
+  //   }
+  // }
+
   
   
   
   onClick = () => {
-    this.props.onRouteChange('CardTwo');
-    this.props.onQuestion1(this.state.selectedOption);
-    this.props.updateQuestion1("5cb9e45caebc7408683ed94f", this.state.selectedOption);
-    // this.props.updateDB("5cb9e45caebc7408683ed94f", this.state.selectedOption);
-    console.log('You have selected:', this.state.selectedOption);
-  }
+    let radios = document.getElementsByTagName('input');
+    if ( radios[0].checked || radios[1].checked ) {
+      this.props.onRouteChange('CardTwo');
+      this.props.onQuestion1(this.state.selectedOption);
+      this.props.updateQuestion1("5cb9e45caebc7408683ed94f", this.state.selectedOption);
+      // this.props.updateDB("5cb9e45caebc7408683ed94f", this.state.selectedOption);
+      console.log('You have selected:', this.state.selectedOption);
+    } else {
+    	alert('please select an item:)');
+    }
+}
   
   
   

@@ -67,6 +67,13 @@ const countTotalItem = (database, what) => {
 }
 
 
+
+
+
+
+
+
+
 class App extends Component {
   constructor() {
     super();
@@ -183,11 +190,11 @@ class App extends Component {
 
 
 componentDidMount() {
-      if (!this.state.intervalIsSet) {
-      let interval = setInterval(this.getDataFromDb, 1000);
-      this.setState({ intervalIsSet: interval });
-    }
-    // this.getDataFromDb()
+    //   if (!this.state.intervalIsSet) {
+    //   let interval = setInterval(this.getDataFromDb, 1000);
+    //   this.setState({ intervalIsSet: interval });
+    // }
+    this.getDataFromDb()
   } 
 
 
