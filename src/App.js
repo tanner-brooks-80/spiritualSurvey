@@ -56,6 +56,17 @@ const countInArray = (array, what) => {
 }
 
 
+
+const countTotalItem = (database, what) => {
+  var count=0;
+  for (let i = 0; i < database.length; i++){
+    let values = Object.values(database[i])
+    count += countInArray(values, what);
+    }
+    return count;
+}
+
+
 class App extends Component {
   constructor() {
     super();
@@ -312,6 +323,16 @@ putDataToDB = (wholeSubmission) => {
                         'rgba(0, 0, 0, 0.6)',
                         'rgba(0, 0, 0, 0.6)',
                     ]
+                  }, {
+                    label: 'Total Submissions',
+                    data: [
+                          countTotalItem(database, "Apostolic"),
+                          countTotalItem(database, "Pastoral"),
+                          countTotalItem(database, "Evangelic"),
+                          countTotalItem(database, "Teacher"),
+                          countTotalItem(database, "Prophetic")
+                      ],
+                    type: 'line'
                   }
                 ]
           }
@@ -319,8 +340,12 @@ putDataToDB = (wholeSubmission) => {
     });
   };
   
-  
-  
+  // *******  This function will give total database entries with a specific condition!!!   *******
+  // const count = 0;
+  // for (i =0; i < database.length; i++){
+	 // values = Object.values(database[i])
+	 // count += countInArray(values, "Apostolic");
+  // }
 
   
   
