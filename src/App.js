@@ -102,30 +102,7 @@ class App extends Component {
     super();
     this.state = initialState
   }
-  
 
-
-
-
-
-  
-  
-  // our update method that uses our backend api
-  // to overwrite existing data base information
-  // updateDB = (idToUpdate, updateToApply) => {
-  //   let objIdToUpdate = null;
-  //   this.state.data.forEach(dat => {
-  //     if (dat.id === idToUpdate) {
-  //       objIdToUpdate = dat._id;
-  //     }
-  //   });
-
-  //   axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
-  //     id: objIdToUpdate,
-  //     update: { question1: updateToApply }
-  //   });
-  // };
-  
   
 
 
@@ -213,11 +190,11 @@ class App extends Component {
 
 
 componentDidMount() {
-    //   if (!this.state.intervalIsSet) {
-    //   let interval = setInterval(this.getDataFromDb, 1000);
-    //   this.setState({ intervalIsSet: interval });
-    // }
-    this.getDataFromDb()
+      if (!this.state.intervalIsSet) {
+      let interval = setInterval(this.getDataFromDb, 1000);
+      this.setState({ intervalIsSet: interval });
+    }
+    // this.getDataFromDb()
   } 
 
 
@@ -361,7 +338,11 @@ putDataToDB = (wholeSubmission) => {
                 ]
           }
           
-      , data: database, subData: databaseItem1}) 
+      , 
+      data: database, 
+      subData: databaseItem1
+            
+          }) 
     });
   };
 
