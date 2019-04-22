@@ -29,10 +29,15 @@ class CardFour extends React.Component {
    
    
   onClick = () => {
-    this.props.onRouteChange('CardFive');
-    this.props.updateQuestion4("5cb9e45caebc7408683ed94f", this.state.selectedOption);
-    console.log('You have selected:', this.state.selectedOption);
-  }
+    let radios = document.getElementsByTagName('input');
+    if ( radios[0].checked || radios[1].checked ) {
+      this.props.onRouteChange('CardFive');
+      this.props.onQuestion4(this.state.selectedOption);
+      this.props.updateQuestion4("5cb8d878af09d60d21e68e24", this.state.selectedOption);
+    } else {
+    	alert('please select an item:)');
+    }
+}
    
    
    

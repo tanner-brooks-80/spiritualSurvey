@@ -9,6 +9,7 @@ import CardFour from './components/Cards/CardFour';
 import CardFive from './components/Cards/CardFive';
 import ReadyToSubmit from './components/Cards/ReadyToSubmit';
 import Submit from './components/Submit/Submit';
+import SubmitWhole from './components/Submit/SubmitWhole';
 import axios from "axios";
 
 
@@ -29,9 +30,13 @@ const particlesOptions = {
 const initialState = {
       route: 'CardOne',
       chartData: {},
+      chartDataWhole: {},
       users: {},
       question1: '',
       question2: '',
+      question3: '',
+      question4: '',
+      question5: '',
       data: [],
       subData: {}
 }
@@ -39,7 +44,25 @@ const initialState = {
 
 const database1 = {
   question1: '',
-  question2: ''
+  question2: '',
+  question3: '',
+  question4: '',
+  question5: '',
+  question6: '',
+  question7: '',
+  question8: '',
+  question9: '',
+  question10: '',
+  question11: '',
+  question12: '',
+  question13: '',
+  question14: '',
+  question15: '',
+  question16: '',
+  question17: '',
+  question18: '',
+  question19: '',
+  question20: '',
 }
 
 
@@ -216,17 +239,31 @@ componentDidMount() {
   }
   
   
-  onQuestion1 = (question1) => {
-    this.setState({question1: question1});
-    database1.question1 = question1;
+  onQuestion1 = (question) => {
+    this.setState({question1: question});
+    database1.question1 = question;
     console.log(this.state);
   }  
   
   
-  onQuestion2 = (question2) => {
-    this.setState({question2: question2});
-    database1.question2 = question2;
-    console.log(this.state);
+  onQuestion2 = (question) => {
+    this.setState({question2: question});
+    database1.question2 = question;
+  }
+  
+  onQuestion3 = (question) => {
+    this.setState({question3: question});
+    database1.question3 = question;
+  }  
+  
+  onQuestion4 = (question) => {
+    this.setState({question4: question});
+    database1.question4 = question;
+  }  
+  
+  onQuestion5 = (question) => {
+    this.setState({question5: question});
+    database1.question5 = question;
   }
 
   
@@ -237,22 +274,7 @@ componentDidMount() {
   
   
   
-  
-  
-// putDataToDB = question1Answer => {
-//     console.log(question1Answer);
-//     axios.post('https://backend-tannerbrooks123.c9users.io/putData', {
-//       question1: question1Answer
-//     })
-//     .then(function (response) {
-//     console.log(response);
-//   })
-//     .catch(function (error) {
-//     console.log(error);
-//   });
-// };  
 
-// wholesubmition = this.state.data;
 
 putDataToDB = (wholeSubmission) => {
   console.log("This is the wholeSubmission: ", wholeSubmission);
@@ -271,28 +293,6 @@ putDataToDB = (wholeSubmission) => {
   });
 };  
 
-
-// putDataToDB = wholeSubmission => {
-//     console.log(wholeSubmission);
-//     fetch('https://backend-tannerbrooks123.c9users.io/getData')
-//     .then(data => data.json())
-//           .then(res => {
-//             const database2 = res.data
-//             console.log(database2);
-//             const databaseItem2 = database2[0];
-//             console.log(databaseItem2);
-//             let values2 = Object.values(databaseItem2)
-//     axios.post('https://backend-tannerbrooks123.c9users.io/putData', {
-//       wholeSubmission: values2
-//     })
-//     .then(function (response) {
-//     console.log(response);
-//   })
-//     .catch(function (error) {
-//     console.log(error);
-//   });
-// })
-// };  
   
   
   
@@ -305,10 +305,7 @@ putDataToDB = (wholeSubmission) => {
             console.log("this is the database: ", database);
             const databaseItem1 = database[0];
             console.log("This is the first item in the database: ", databaseItem1);
-            // const databaseItem1 = database.data[0]
-            // console.log(databaseItem1)
             let values1 = Object.values(databaseItem1)
-            // let values1 = Object.values(database)
 
           this.setState({
           chartData:{
@@ -330,7 +327,26 @@ putDataToDB = (wholeSubmission) => {
                         'rgba(0, 0, 0, 0.6)',
                         'rgba(0, 0, 0, 0.6)',
                     ]
-                  }, {
+                  } 
+                  // ,{
+                  //   label: 'Total Congregation Submissions',
+                  //   data: [
+                  //         countTotalItem(database, "Apostolic"),
+                  //         countTotalItem(database, "Pastoral"),
+                  //         countTotalItem(database, "Evangelic"),
+                  //         countTotalItem(database, "Teacher"),
+                  //         countTotalItem(database, "Prophetic")
+                  //     ],
+                  //   type: 'line',
+                  //   backgroundColor: 'rgba(255, 253, 196, 0.3)'
+                  // }
+                ]
+          },
+          
+          chartDataWhole:{
+              labels: ['Apostolic', 'Pastoral', 'Evangelic', 'Teacher', 'Prophetic'],
+              datasets: [
+                {
                     label: 'Total Congregation Submissions',
                     data: [
                           countTotalItem(database, "Apostolic"),
@@ -344,16 +360,10 @@ putDataToDB = (wholeSubmission) => {
                   }
                 ]
           }
+          
       , data: database, subData: databaseItem1}) 
     });
   };
-  
-  // *******  This function will give total database entries with a specific condition!!!   *******
-  // const count = 0;
-  // for (i =0; i < database.length; i++){
-	 // values = Object.values(database[i])
-	 // count += countInArray(values, "Apostolic");
-  // }
 
   
   
@@ -395,6 +405,7 @@ putDataToDB = (wholeSubmission) => {
                 <CardThree 
                       onRouteChange={this.onRouteChange} 
                       updateQuestion3={this.updateQuestion3}
+                      onQuestion3={this.onQuestion3}
                       />
               </div>
             :
@@ -403,6 +414,7 @@ putDataToDB = (wholeSubmission) => {
                 <CardFour 
                       onRouteChange={this.onRouteChange} 
                       updateQuestion4={this.updateQuestion4}
+                      onQuestion4={this.onQuestion4}
                       />
               </div>
             :
@@ -411,6 +423,7 @@ putDataToDB = (wholeSubmission) => {
                 <CardFive 
                       onRouteChange={this.onRouteChange} 
                       updateQuestion5={this.updateQuestion5}
+                      onQuestion5={this.onQuestion5}
                       />
               </div>
             :
@@ -425,6 +438,7 @@ putDataToDB = (wholeSubmission) => {
             : 
               <div>
                 <Submit onRouteChange={this.onRouteChange} chartData={this.state.chartData} getDataFromDb={this.getDataFromDb} />
+                <SubmitWhole onRouteChange={this.onRouteChange} chartDataWhole={this.state.chartDataWhole} getDataFromDb={this.getDataFromDb} />
               </div>
               
           }
