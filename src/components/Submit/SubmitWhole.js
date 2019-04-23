@@ -2,7 +2,7 @@ import React from 'react';
 import './Submit.css';
 import {Bar} from 'react-chartjs-2';
 
-class Submit extends React.Component {
+class SubmitWhole extends React.Component {
   
   constructor(props) {
     super(props);
@@ -10,26 +10,17 @@ class Submit extends React.Component {
       route: '',
       chartData: props.chartData,
       users: [],
-      data: props.getDataFromDb
+      data: props.getDataFromDb,
+      chartDataWhole: props.chartDataWhole
     }
   }
   
   
-  
-//   componentWillMount(){
-//     this.getChartData();
-//     // fetch('/database')
-//     //   .then(res => res.json())
-//     //   .then(users => this.setState({users}, () => console.log('Customers fetched..', users)));
-//   }
-  
-
-   
     render() {
         return(
           <div id="div" className='chart-container br3 mw8 shadow-5 center' >
             <Bar 
-                data={this.state.chartData}
+                data={this.state.chartDataWhole}
                 width={100}
                 height={40}
                 options={{
@@ -62,4 +53,4 @@ class Submit extends React.Component {
     
 }
 
-export default Submit;
+export default SubmitWhole;
