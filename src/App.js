@@ -7,6 +7,31 @@ import CardTwo from './components/Cards/CardTwo';
 import CardThree from './components/Cards/CardThree';
 import CardFour from './components/Cards/CardFour';
 import CardFive from './components/Cards/CardFive';
+import CardSix from './components/Cards/CardSix';
+import CardSeven from './components/Cards/CardSeven';
+import CardEight from './components/Cards/CardEight';
+import CardNine from './components/Cards/CardNine';
+import CardTen from './components/Cards/CardTen';
+import CardEleven from './components/Cards/CardEleven';
+import CardTwelve from './components/Cards/CardTwelve';
+import CardThirteen from './components/Cards/CardThirteen';
+import CardFourteen from './components/Cards/CardFourteen';
+import CardFifteen from './components/Cards/CardFifteen';
+import CardSixteen from './components/Cards/CardSixteen';
+import CardSeventeen from './components/Cards/CardSeventeen';
+import CardEighteen from './components/Cards/CardEighteen';
+import CardNineteen from './components/Cards/CardNineteen';
+import CardTwenty from './components/Cards/CardTwenty';
+import CardTwentyOne from './components/Cards/CardTwentyOne';
+import CardTwentyTwo from './components/Cards/CardTwentyTwo';
+import CardTwentyThree from './components/Cards/CardTwentyThree';
+import CardTwentyFour from './components/Cards/CardTwentyFour';
+import CardTwentyFive from './components/Cards/CardTwentyFive';
+import CardTwentySix from './components/Cards/CardTwentySix';
+import CardTwentySeven from './components/Cards/CardTwentySeven';
+import CardTwentyEight from './components/Cards/CardTwentyEight';
+import CardTwentyNine from './components/Cards/CardTwentyNine';
+import CardThirty from './components/Cards/CardThirty';
 import ReadyToSubmit from './components/Cards/ReadyToSubmit';
 import Submit from './components/Submit/Submit';
 import SubmitWhole from './components/Submit/SubmitWhole';
@@ -37,6 +62,31 @@ const initialState = {
       question3: '',
       question4: '',
       question5: '',
+      question6: '',
+      question7: '',
+      question8: '',
+      question9: '',
+      question10: '',
+      question11: '',
+      question12: '',
+      question13: '',
+      question14: '',
+      question15: '',
+      question16: '',
+      question17: '',
+      question18: '',
+      question19: '',
+      question20: '',
+      question21: '',
+      question22: '',
+      question23: '',
+      question24: '',
+      question25: '',
+      question26: '',
+      question27: '',
+      question28: '',
+      question29: '',
+      question30: '',
       data: [],
       subData: {}
 }
@@ -184,6 +234,367 @@ class App extends Component {
       update: { question5: updateToApply }
     });
   };
+  
+  updateQuestion6 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question6: updateToApply }
+    });
+  };
+  
+  updateQuestion7 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question7: updateToApply }
+    });
+  };
+  
+  updateQuestion8 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question8: updateToApply }
+    });
+  };
+  
+  updateQuestion9 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question9: updateToApply }
+    });
+  };  
+  
+  updateQuestion10 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question10: updateToApply }
+    });
+  };  
+  
+  updateQuestion11 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question11: updateToApply }
+    });
+  };  
+  
+  updateQuestion12 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question12: updateToApply }
+    });
+  };
+  
+  updateQuestion13 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question13: updateToApply }
+    });
+  };  
+  
+  updateQuestion14 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question14: updateToApply }
+    });
+  };  
+  
+  updateQuestion15 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question15: updateToApply }
+    });
+  }; 
+  
+  updateQuestion16 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question16: updateToApply }
+    });
+  };
+  
+  updateQuestion17 = (idToUpdate, updateToApply) => {
+    let objIdToUpdate = null;
+    this.state.data.forEach(dat => {
+      if (dat.id === idToUpdate) {
+        objIdToUpdate = dat._id;
+      }
+    });
+
+    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      id: objIdToUpdate,
+      update: { question17: updateToApply }
+    });
+  };
+  
+  updateQuestion18 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question18: updateToApply }
+      });
+  };  
+  
+  updateQuestion19 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question19: updateToApply }
+      });
+  };  
+  
+  updateQuestion20 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question20: updateToApply }
+      });
+  };  
+  
+  updateQuestion21 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question21: updateToApply }
+      });
+  };  
+  
+  updateQuestion22 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question22: updateToApply }
+      });
+  };  
+  
+  updateQuestion23 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question23: updateToApply }
+      });
+  };
+  
+  updateQuestion24 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question24: updateToApply }
+      });
+  };  
+  
+  updateQuestion25 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question25: updateToApply }
+      });
+  };  
+  
+  updateQuestion26 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question26: updateToApply }
+      });
+  };  
+  
+  updateQuestion27 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question27: updateToApply }
+      });
+  };  
+  
+  updateQuestion28 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question28: updateToApply }
+      });
+  };  
+  
+  updateQuestion29 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question29: updateToApply }
+      });
+  };  
+  
+  updateQuestion30 = (idToUpdate, updateToApply) => {
+      let objIdToUpdate = null;
+      this.state.data.forEach(dat => {
+        if (dat.id === idToUpdate) {
+          objIdToUpdate = dat._id;
+        }
+      });
+  
+      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+        id: objIdToUpdate,
+        update: { question30: updateToApply }
+      });
+  };
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -260,7 +671,32 @@ putDataToDB = (wholeSubmission) => {
       question2: wholeSubmission.question2,
       question3: wholeSubmission.question3,
       question4: wholeSubmission.question4,
-      question5: wholeSubmission.question5
+      question5: wholeSubmission.question5,
+      question6: wholeSubmission.question6,
+      question7: wholeSubmission.question7,
+      question8: wholeSubmission.question8,
+      question9: wholeSubmission.question9,
+      question10: wholeSubmission.question10,
+      question11: wholeSubmission.question11,
+      question12: wholeSubmission.question12,
+      question13: wholeSubmission.question13,
+      question14: wholeSubmission.question14,
+      question15: wholeSubmission.question15,
+      question16: wholeSubmission.question16,
+      question17: wholeSubmission.question17,
+      question18: wholeSubmission.question18,
+      question19: wholeSubmission.question19,
+      question20: wholeSubmission.question20,
+      question21: wholeSubmission.question21,
+      question22: wholeSubmission.question22,
+      question23: wholeSubmission.question23,
+      question24: wholeSubmission.question24,
+      question25: wholeSubmission.question25,
+      question26: wholeSubmission.question26,
+      question27: wholeSubmission.question27,
+      question28: wholeSubmission.question28,
+      question29: wholeSubmission.question29,
+      question30: wholeSubmission.question30,
     })
     .then(function (response) {
     console.log(response);
@@ -406,6 +842,206 @@ putDataToDB = (wholeSubmission) => {
                       updateQuestion5={this.updateQuestion5}
                       onQuestion5={this.onQuestion5}
                       />
+              </div>
+            :
+            this.state.route === 'CardSix'
+            ? <div>
+                <CardSix 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion6={this.updateQuestion6}
+                />
+              </div>
+            :
+            this.state.route === 'CardSeven'
+            ? <div>
+                <CardSeven 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion7={this.updateQuestion7}
+                />
+              </div>
+            :
+            this.state.route === 'CardEight'
+            ? <div>
+                <CardEight 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion8={this.updateQuestion8}
+                />
+              </div>
+            : 
+            this.state.route === 'CardNine'
+            ? <div>
+                <CardNine 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion9={this.updateQuestion9}
+                />
+              </div>
+            :
+            this.state.route === 'CardTen'
+            ? <div>
+                <CardTen 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion10={this.updateQuestion10}
+                />
+              </div>
+            :
+            this.state.route === 'CardEleven'
+            ? <div>
+                <CardEleven 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion11={this.updateQuestion11}
+                />
+              </div>
+            :
+            this.state.route === 'CardTwelve'
+            ? <div>
+                <CardTwelve 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion12={this.updateQuestion12}
+                />
+              </div>
+            :
+            this.state.route === 'CardThirteen'
+            ? <div>
+                <CardThirteen 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion13={this.updateQuestion13}
+                />
+              </div>
+            :
+            this.state.route === 'CardFourteen'
+            ? <div>
+                <CardFourteen 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion14={this.updateQuestion14}
+                />
+              </div>
+            :
+            this.state.route === 'CardFifteen'
+            ? <div>
+                <CardFifteen 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion15={this.updateQuestion15}
+                />
+              </div>
+            :
+            this.state.route === 'CardSixteen'
+            ? <div>
+                <CardSixteen 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion16={this.updateQuestion16}
+                />
+              </div>
+            :
+            this.state.route === 'CardSeventeen'
+            ? <div>
+                <CardSeventeen 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion17={this.updateQuestion17}
+                />
+              </div>
+            :
+            this.state.route === 'CardEighteen'
+            ? <div>
+                <CardEighteen 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion18={this.updateQuestion18}
+                />
+              </div>
+            :
+            this.state.route === 'CardNineteen'
+            ? <div>
+                <CardNineteen 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion19={this.updateQuestion19}
+                />
+              </div>
+            :
+            this.state.route === 'CardTwenty'
+            ? <div>
+                <CardTwenty 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion20={this.updateQuestion20}
+                />
+              </div>
+            :
+            this.state.route === 'CardTwentyOne'
+            ? <div>
+                <CardTwentyOne 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion21={this.updateQuestion21}
+                />
+              </div>
+            :
+            this.state.route === 'CardTwentyTwo'
+            ? <div>
+                <CardTwentyTwo 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion22={this.updateQuestion22}
+                />
+              </div>
+            :
+            this.state.route === 'CardTwentyThree'
+            ? <div>
+                <CardTwentyThree 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion23={this.updateQuestion23}
+                />
+              </div>
+            :
+            this.state.route === 'CardTwentyFour'
+            ? <div>
+                <CardTwentyFour 
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion24={this.updateQuestion24}
+                />
+              </div>
+            :
+            this.state.route === 'CardTwentyFive'
+            ? <div>
+                <CardTwentyFive
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion25={this.updateQuestion25}
+                />
+              </div>
+            :
+            this.state.route === 'CardTwentySix'
+            ? <div>
+                <CardTwentySix
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion26={this.updateQuestion26}
+                />
+              </div>
+            :
+            this.state.route === 'CardTwentySeven'
+            ? <div>
+                <CardTwentySeven
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion27={this.updateQuestion27}
+                />
+              </div>
+            :
+            this.state.route === 'CardTwentyEight'
+            ? <div>
+                <CardTwentyEight
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion28={this.updateQuestion28}
+                />
+              </div>
+            :
+            this.state.route === 'CardTwentyNine'
+            ? <div>
+                <CardTwentyNine
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion29={this.updateQuestion29}
+                />
+              </div>
+            :
+            this.state.route === 'CardThirty'
+            ? <div>
+                <CardThirty
+                      onRouteChange={this.onRouteChange} 
+                      updateQuestion30={this.updateQuestion30}
+                />
               </div>
             :
             this.state.route === 'ReadyToSubmit'

@@ -40,7 +40,8 @@ class SubmitWhole extends React.Component {
                     legend: {
                         labels: {
                             fontColor: 'rgb(0, 0, 0)',
-                            fontSize: 15
+                            fontSize: 15,
+                            fontStyle: 'bold'
                         }
                     }
                 }}
