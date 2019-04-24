@@ -173,7 +173,7 @@ class App extends Component {
       }
     });
     
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question1: updateToApply }
     });
@@ -187,7 +187,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question2: updateToApply }
     });
@@ -201,7 +201,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question3: updateToApply }
     });
@@ -215,7 +215,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question4: updateToApply }
     });
@@ -229,7 +229,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question5: updateToApply }
     });
@@ -243,7 +243,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question6: updateToApply }
     });
@@ -257,7 +257,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question7: updateToApply }
     });
@@ -271,7 +271,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question8: updateToApply }
     });
@@ -285,7 +285,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question9: updateToApply }
     });
@@ -299,7 +299,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question10: updateToApply }
     });
@@ -313,7 +313,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question11: updateToApply }
     });
@@ -327,7 +327,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question12: updateToApply }
     });
@@ -341,7 +341,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question13: updateToApply }
     });
@@ -355,7 +355,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question14: updateToApply }
     });
@@ -369,7 +369,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question15: updateToApply }
     });
@@ -383,7 +383,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question16: updateToApply }
     });
@@ -397,7 +397,7 @@ class App extends Component {
       }
     });
 
-    axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+    axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
       id: objIdToUpdate,
       update: { question17: updateToApply }
     });
@@ -411,7 +411,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question18: updateToApply }
       });
@@ -425,7 +425,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question19: updateToApply }
       });
@@ -439,7 +439,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question20: updateToApply }
       });
@@ -453,7 +453,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question21: updateToApply }
       });
@@ -467,7 +467,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question22: updateToApply }
       });
@@ -481,7 +481,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question23: updateToApply }
       });
@@ -495,7 +495,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question24: updateToApply }
       });
@@ -509,7 +509,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question25: updateToApply }
       });
@@ -523,7 +523,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question26: updateToApply }
       });
@@ -537,7 +537,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question27: updateToApply }
       });
@@ -551,7 +551,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question28: updateToApply }
       });
@@ -565,7 +565,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question29: updateToApply }
       });
@@ -579,7 +579,7 @@ class App extends Component {
         }
       });
   
-      axios.post("https://backend-tannerbrooks123.c9users.io/updateData", {
+      axios.post("https://sheltered-tor-35568.herokuapp.com/updateData", {
         id: objIdToUpdate,
         update: { question30: updateToApply }
       });
@@ -666,7 +666,7 @@ componentDidMount() {
 
 putDataToDB = (wholeSubmission) => {
   console.log("This is the wholeSubmission: ", wholeSubmission);
-    axios.post('https://backend-tannerbrooks123.c9users.io/putData', {
+    axios.post('https://sheltered-tor-35568.herokuapp.com/putData', {
       question1: wholeSubmission.question1,
       question2: wholeSubmission.question2,
       question3: wholeSubmission.question3,
@@ -711,7 +711,7 @@ putDataToDB = (wholeSubmission) => {
   
   
   getDataFromDb = () => {
-    fetch('https://backend-tannerbrooks123.c9users.io/getData')
+    fetch('https://sheltered-tor-35568.herokuapp.com/getData')
           .then(data => data.json())
           .then(res => {
             const database = res.data
